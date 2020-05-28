@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/apache/pulsar/pulsar-function-go/pf"
 
-	pulsarFlogoTrigger "github.com/skothari-tibco/messaging-contrib/pulsar/trigger"
+	pulsarFlogoTrigger "github.com/skothari-tibco/pulsar/trigger"
 )
 
 func main() {
