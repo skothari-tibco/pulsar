@@ -41,9 +41,8 @@ func (t *Trigger) Metadata() *trigger.Metadata {
 func Invoke(ctx context.Context, in []byte) ([]byte, error) {
 
 	// Get the first Handler
-	firstHandler := pulsarTrigger.handlers[0].handler
 
-	out, err := firstHandler.Handle(ctx, in)
+	out, err := pulsarTrigger.handler.Handle(ctx, in)
 	if err != nil {
 		return nil, err
 	}
