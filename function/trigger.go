@@ -41,12 +41,14 @@ func (t *Trigger) Metadata() *trigger.Metadata {
 func Invoke(ctx context.Context, in []byte) ([]byte, error) {
 
 	// Get the first Handler
+	out := &Output{}
+	out.Message = string(in)
 
-	out, err := pulsarTrigger.handler.Handle(ctx, string(in))
+	reply, err := pulsarTrigger.handler.Handle(ctx, out)
 	if err != nil {
 		return nil, err
 	}
-	return json.Marshal(out)
+	return json.Marshal(reply)
 }
 
 func (t *Trigger) Initialize(ctx trigger.InitContext) error {
