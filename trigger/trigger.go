@@ -61,7 +61,7 @@ func Invoke(ctx context.Context, in []byte) ([]byte, error) {
 	// Get the first Handler
 	firstHandler := pulsarTrigger.handlers[0].handler
 
-	out, err := firstHandler.Handle(context.Background(), in)
+	out, err := firstHandler.Handle(ctx, in)
 	if err != nil {
 		return nil, err
 	}
